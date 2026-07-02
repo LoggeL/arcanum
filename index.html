@@ -40,6 +40,13 @@
     </div>
   </div>
 
+  <!-- Touch-Steuerung -->
+  <div id="touch-ui" class="hidden">
+    <div id="joystick"><div id="joystick-knob"></div></div>
+    <button id="interact-btn" aria-label="Benutzen">✦</button>
+    <button id="pause-btn" aria-label="Pause">❚❚</button>
+  </div>
+
   <!-- Lesepanel (Buch / Hinweise) -->
   <div id="reading" class="hidden">
     <div class="parchment">
@@ -63,7 +70,8 @@
       </p>
       <button id="start-btn">Die Kammer betreten</button>
       <p class="title-controls"><b>WASD</b> bewegen &nbsp;·&nbsp; <b>Maus</b> umsehen &nbsp;·&nbsp; <b>Klick</b> benutzen</p>
-      <p class="title-note">Desktop &amp; Maus empfohlen</p>
+      <p class="title-controls touch-only"><b>Linker Daumen</b> läuft &nbsp;·&nbsp; <b>rechter Daumen</b> blickt &nbsp;·&nbsp; <b>Tippen</b> benutzt</p>
+      <p class="title-note">Zwei Kammern. Ein Ausweg. Viele Sackgassen.</p>
     </div>
   </div>
 
@@ -84,8 +92,9 @@
       <p class="title-sub">Du bist dem Erzmagier entwischt in</p>
       <p id="win-time">00:00</p>
       <p class="title-story">
-        Hinter dir verklingt das Murren des Turms. Irgendwo oben flucht jemand
-        sehr Altes, sehr Mächtiges — und sucht seinen Messingschlüssel.
+        Das Portal spuckt dich auf die Weide hinterm Turm — nicht in den Drachenhorst,
+        die Randnotiz hatte recht. Irgendwo oben flucht jemand sehr Altes,
+        sehr Mächtiges — und sucht seinen Messingschlüssel.
       </p>
       <button id="again-btn">Noch einmal</button>
     </div>

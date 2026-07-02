@@ -304,3 +304,112 @@ button:active { transform: translateY(1px); }
 .title-controls b { color: var(--gold-bright); font-weight: 400; }
 
 .title-note { margin-top: 6px; font-size: 0.85rem; font-style: italic; color: rgba(233, 216, 171, 0.35); }
+
+/* ---------- Touch-Steuerung ---------- */
+
+.touch-only { display: none; }
+
+@media (pointer: coarse) {
+  .touch-only { display: block; }
+}
+
+#touch-ui { position: fixed; inset: 0; pointer-events: none; z-index: 15; }
+
+#joystick {
+  position: absolute;
+  width: 130px; height: 130px;
+  margin: -65px 0 0 -65px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 162, 39, 0.4);
+  background: radial-gradient(circle, rgba(20, 14, 8, 0.35), rgba(20, 14, 8, 0.15));
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#joystick.visible { opacity: 1; }
+
+#joystick-knob {
+  position: absolute; left: 50%; top: 50%;
+  width: 56px; height: 56px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(240, 200, 74, 0.85), rgba(154, 122, 28, 0.85));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+#interact-btn {
+  position: absolute; right: 26px; bottom: 96px;
+  pointer-events: auto;
+  width: 76px; height: 76px;
+  padding: 0;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: rgba(233, 216, 171, 0.75);
+  background: radial-gradient(circle at 35% 30%, rgba(60, 44, 20, 0.85), rgba(28, 20, 10, 0.85));
+  border: 2px solid rgba(201, 162, 39, 0.45);
+  border-radius: 50%;
+  clip-path: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+
+#interact-btn.ready {
+  color: var(--ink);
+  background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold));
+  box-shadow: 0 0 26px rgba(240, 200, 74, 0.55);
+  transform: scale(1.08);
+}
+
+#interact-btn:hover { transform: none; filter: none; }
+#interact-btn.ready:hover { transform: scale(1.08); }
+
+#pause-btn {
+  position: absolute; top: 84px; right: 26px;
+  pointer-events: auto;
+  width: 46px; height: 46px;
+  padding: 0;
+  font-size: 0.9rem;
+  color: rgba(233, 216, 171, 0.7);
+  background: rgba(20, 14, 8, 0.65);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 8px;
+  clip-path: none;
+  box-shadow: none;
+}
+
+#pause-btn:hover { transform: none; filter: none; box-shadow: none; }
+
+/* ---------- Kleine Bildschirme ---------- */
+
+@media (max-width: 720px) {
+  #objective {
+    top: 14px; left: 14px;
+    max-width: min(60vw, 280px);
+    padding: 8px 12px 10px;
+  }
+  #objective-text { font-size: 0.9rem; }
+  .objective-title { font-size: 0.7rem; }
+
+  #timer {
+    top: 14px; right: 14px;
+    font-size: 1.1rem;
+    padding: 4px 10px;
+  }
+
+  #pause-btn { top: 64px; right: 14px; }
+
+  #toast {
+    bottom: 190px;
+    max-width: 86vw;
+    font-size: 1.05rem;
+  }
+
+  #inventory { gap: 8px; bottom: 18px; }
+  .slot { width: 44px; height: 44px; font-size: 1.3rem; }
+
+  #hover-label { font-size: 1rem; }
+
+  .parchment { padding: 28px 26px 20px; max-width: 88vw; }
+  .parchment h2 { font-size: 1.5rem; }
+  .parchment #reading-body { font-size: 1.05rem; }
+}
